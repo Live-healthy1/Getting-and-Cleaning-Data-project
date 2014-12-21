@@ -1,6 +1,7 @@
-
-
 ##12/20/2014--Getting-and-Cleaning-Data
+## Final Project
+######################################################
+
 
 #1.Data Extraction:downloading and unzipping file 
 
@@ -70,11 +71,12 @@ SubjFeatAct_data <- cbind(Subject_data, Features_data, Activity_data)
 
 Avg_data <- ddply(SubjFeatAct_data, .(subject, activity), function(x) colMeans(x[, 1:66]))
 
+##Labeling the values of variable activity
 Avg_data$activity <- factor(Avg_data$activity,
                      levels = c("1","2","3","4","5","6"),
                      labels = c("WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDING","LAYING"))
 
 
-#At the end-Writing the new dataset into a txt file
+#At the end-Writing the new dataset into a txt filelib
 
 write.table(Avg_data, "tidy_data.txt", row.name=FALSE)
