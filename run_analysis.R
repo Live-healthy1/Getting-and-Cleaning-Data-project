@@ -71,8 +71,8 @@ SubjFeatAct_data <- cbind(Subject_data, Features_data, Activity_data)
 Avg_data <- ddply(SubjFeatAct_data, .(subject, activity), function(x) colMeans(x[, 1:66]))
 
 Avg_data$activity <- factor(Avg_data$activity,
-  levels = c("1","2","3","4","5","6"),
-  labels = c("WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDING","LAYING"))
+                     levels = c("1","2","3","4","5","6"),
+                     labels = c("WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDING","LAYING"))
 
 
 #At the end-Writing the new dataset into a txt file
